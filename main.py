@@ -49,23 +49,23 @@ if __name__ == '__main__':
     model = torch.load(model_path)
     model.eval()
 
-    ## -- 2. load opts
-    model_opt_file = "./results/opt_lsh.json"
-    with open(model_opt_file, 'r') as f:
-        model_opt = json.load(f)
-
-    ## -- 3. load support data
+    ## -- 2. load support data
     support_path = "./support.pt"
     xs = torch.load(support_path) # [3, 10, 1, 51, 40], [3-way, 10-shots, 1, T, f]
 
-    ## -- 4. load query data from wav file
-    query_path = "/home/lsh/KWS/FS_KWS_LSH/dataset/preprocess/3/3_kch.wav"
+
+    #################################################################
+    #           BELOW HERE, CODE SHOULD BE PUT INTO THREAD
+    #################################################################
+
+    ## -- 3. load query data from wav file
+    query_path = "/home/lsh/KWS/FS_KWS_LSH/dataset/preprocess/1/1_kch.wav"
     sound = load_audio(query_path)
     xq = extract_features(sound) # [1. 51. 40] , [1 , T, f]
     xq = xq.unsqueeze(0)
     xq = xq.unsqueeze(0) # [1,1,1,51,40]
 
-    ## -- 5. inference
+    ## -- 4. inference
     sample = {}
     sample['xs'] = xs
     sample['xq'] = xq
