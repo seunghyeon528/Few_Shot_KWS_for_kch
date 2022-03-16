@@ -24,8 +24,8 @@ def search(dirname,end):
     except PermissionError:
         pass
 
-root_dir = "/home/lsh/KWS/FS_KWS_LSH/dataset/original"
-save_root_dir = "/home/lsh/KWS/FS_KWS_LSH/dataset/preprocess"
+root_dir = "./original"
+save_root_dir = "./preprocess"
 wav_list = []
 search(root_dir, ".wav")
 pdb.set_trace()
