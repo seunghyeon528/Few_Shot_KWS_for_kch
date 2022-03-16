@@ -59,7 +59,7 @@ if __name__ == '__main__':
     #################################################################
 
     ## -- 3. load query data from wav file
-    query_path = "/home/lsh/KWS/FS_KWS_LSH/dataset/preprocess/1/1_kch.wav"
+    query_path = "./dataset/preprocess/1/1_kch.wav"
     sound = load_audio(query_path)
     xq = extract_features(sound) # [1. 51. 40] , [1 , T, f]
     xq = xq.unsqueeze(0)
